@@ -97,3 +97,7 @@ Available at: github.com/brack-6/LeapGNN
 - Dehmamy et al. (2019). Understanding the representation power of GNNs via graph Weisfeiler-Leman.
 - Toth et al. (2020). Hamiltonian generative networks.
 - Sanchez-Gonzalez et al. (2019). Hamiltonian graph networks with ODE integrators.
+
+## Relation to HamGNN (QuantumLab-ZY)
+
+QuantumLab-ZY/HamGNN predicts electronic Hamiltonian matrices using E(3)-equivariant convolutions — a full symmetry-enforcement approach requiring SE(3)-Transformer layers. LeapGNN is orthogonal: it replaces message passing aggregation with symplectic leapfrog integration, using the graph adjacency as a Hamiltonian. No equivariance machinery required. The approaches could be combined — equivariant LeapGNN layers are a natural extension.
