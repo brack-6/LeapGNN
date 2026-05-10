@@ -1,0 +1,30 @@
+Downloading https://www.chrsmrrs.com/graphkerneldatasets/MUTAG.zip
+Processing...
+Done!
+
+MUTAG: 188 graphs, 2 classes, 7 node features
+  seed    42 | GCN 0.789 | HamGNN 0.895
+  seed     7 | GCN 0.789 | HamGNN 0.895
+  seed    13 | GCN 0.868 | HamGNN 0.947
+  seed    99 | GCN 0.789 | HamGNN 0.921
+  seed   123 | GCN 0.921 | HamGNN 0.974
+Downloading https://www.chrsmrrs.com/graphkerneldatasets/PROTEINS.zip
+Processing...
+Done!
+
+=============================================
+GCN     mean 0.832 ± 0.054
+HamGNN  mean 0.926 ± 0.031
+=============================================
+
+PROTEINS: 1113 graphs, 2 classes, 3 node features
+  seed    42 | GCN 0.762 | HamGNN 0.731
+  seed     7 | GCN 0.709 | HamGNN 0.717
+  seed    13 | GCN 0.771 | HamGNN 0.771
+  seed    99 | GCN 0.735 | HamGNN 0.740
+  seed   123 | GCN 0.753 | HamGNN 0.744
+
+=============================================
+GCN     mean 0.746 ± 0.022
+HamGNN  mean 0.741 ± 0.018
+=============================================
