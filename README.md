@@ -8,7 +8,7 @@ brack-6 | mantecanaut.substack.com
 
 ## Abstract
 
-We present HamGNN, a graph neural network layer that replaces standard message passing aggregation with symplectic (leapfrog) integration of a graph Hamiltonian. Each node is treated as an oscillator; edges define spring-like interactions; the adjacency matrix defines the Hamiltonian. The leapfrog integrator preserves energy, making the transformation reversible — unlike standard GNN averaging, which is lossy. On the MUTAG molecular benchmark (188 graphs, 7 node features), HamGNN achieves 0.926 ± 0.031 accuracy vs 0.832 ± 0.054 for a standard GCN over 10 random seeds — a 9.4 point improvement with lower variance. On PROTEINS (1113 graphs, 3 node features), performance is statistically equivalent (0.741 vs 0.746), suggesting the physics prior is most effective when node features are information-rich and the physical analogy is tight. We argue this represents a principled inductive bias for chemoinformatics specifically, not a general GNN improvement.
+We present LeapGNN, a graph neural network layer that replaces standard message passing aggregation with symplectic (leapfrog) integration of a graph Hamiltonian. Each node is treated as an oscillator; edges define spring-like interactions; the adjacency matrix defines the Hamiltonian. The leapfrog integrator preserves energy, making the transformation reversible — unlike standard GNN averaging, which is lossy. On the MUTAG molecular benchmark (188 graphs, 7 node features), LeapGNN achieves 0.926 ± 0.031 accuracy vs 0.832 ± 0.054 for a standard GCN over 10 random seeds — a 9.4 point improvement with lower variance. On PROTEINS (1113 graphs, 3 node features), performance is statistically equivalent (0.741 vs 0.746), suggesting the physics prior is most effective when node features are information-rich and the physical analogy is tight. We argue this represents a principled inductive bias for chemoinformatics specifically, not a general GNN improvement.
 
 ---
 
@@ -63,7 +63,7 @@ The forward pass uses batched dense operations via PyTorch Geometric's `to_dense
 | Model   | MUTAG              | PROTEINS           |
 |---------|--------------------|--------------------|
 | GCN     | 0.832 ± 0.054      | 0.746 ± 0.022      |
-| HamGNN  | **0.926 ± 0.031**  | 0.741 ± 0.018      |
+| LeapGNN  | **0.926 ± 0.031**  | 0.741 ± 0.018      |
 
 ---
 
@@ -71,7 +71,7 @@ The forward pass uses batched dense operations via PyTorch Geometric's `to_dense
 
 The 9.4 point improvement on MUTAG is substantial. More telling is the variance reduction (0.054 → 0.031) — the physics constraint stabilises training. The leapfrog integrator's energy conservation acts as an implicit regulariser.
 
-The PROTEINS null result is equally informative. With only 3 node features, the Hamiltonian operates on near-empty vectors — the physics prior has nothing to work with. The domain boundary is sharp: HamGNN works where node features are rich and the graph has genuine physical structure.
+The PROTEINS null result is equally informative. With only 3 node features, the Hamiltonian operates on near-empty vectors — the physics prior has nothing to work with. The domain boundary is sharp: LeapGNN works where node features are rich and the graph has genuine physical structure.
 
 **Limitations:** MUTAG is small (188 graphs). Results should be validated on larger chemistry benchmarks (NCI1, AIDS, ogbg-molhiv). The dense adjacency representation limits scalability to large graphs.
 
@@ -87,7 +87,7 @@ The method emerged from an automated semantic collision detection system, sugges
 
 ## Code
 
-Available at: github.com/brack-6/hamgnn
+Available at: github.com/brack-6/LeapGNN
 
 ---
 
