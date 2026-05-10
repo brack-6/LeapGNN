@@ -101,3 +101,7 @@ Available at: github.com/brack-6/LeapGNN
 ## Relation to HamGNN (QuantumLab-ZY)
 
 QuantumLab-ZY/HamGNN predicts electronic Hamiltonian matrices using E(3)-equivariant convolutions — a full symmetry-enforcement approach requiring SE(3)-Transformer layers. LeapGNN is orthogonal: it replaces message passing aggregation with symplectic leapfrog integration, using the graph adjacency as a Hamiltonian. No equivariance machinery required. The approaches could be combined — equivariant LeapGNN layers are a natural extension.
+
+## Relation to SympGNN
+
+SympGNN (Luo et al., 2024) uses symplectic integration to *identify* unknown Hamiltonian systems from trajectory data — an inverse problem. LeapGNN uses leapfrog integration as *message passing* for graph classification — a forward problem. Both exploit symplectic structure but for orthogonal purposes. SympGNN requires known graph topology and learns the Hamiltonian; LeapGNN treats the adjacency matrix as the Hamiltonian and learns node representations.
